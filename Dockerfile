@@ -16,14 +16,14 @@
 
 # Docker file based on ubuntu with modified Bokeh
 FROM ubuntu
-RUN apt-get update
-RUN apt-get -y install python-pip
-RUN apt-get -y install git-core
+RUN apt-get update \
+    && apt-get -y install python-pip \
+    && apt-get -y install git-core
 
 # install DVH Analytics requirements sans Bokeh
 ADD ./requirements.txt /
-RUN pip install -r requirements.txt
-RUN pip install dvh-analytics==0.3.45 --no-deps
+RUN pip install -r requirements.txt \
+    && pip install dvh-analytics==0.3.46 --no-deps
 
 # Install node.js, needed to install custom version of BokehJS
 RUN apt-get update -yq \
@@ -34,14 +34,14 @@ RUN apt-get update -yq \
 # Download Bokeh, edit plot_canvas.ts
 RUN mkdir bokeh
 ADD https://github.com/bokeh/bokeh/archive/0.13.0.tar.gz /bokeh
-RUN tar -C /bokeh -xvf /bokeh/0.13.0.tar.gz
-RUN rm /bokeh/bokeh-0.13.0/bokehjs/src/lib/models/plots/plot_canvas.ts
+RUN tar -C /bokeh -xvf /bokeh/0.13.0.tar.gz \
+    && rm /bokeh/bokeh-0.13.0/bokehjs/src/lib/models/plots/plot_canvas.ts
 ADD ./plot_canvas.ts /bokeh/bokeh-0.13.0/bokehjs/src/lib/models/plots/plot_canvas.ts
 
 # Install custom version of BokehJS
 WORKDIR /bokeh/bokeh-0.13.0/bokehjs
-RUN npm install -g npm
-RUN npm install --no-save
+RUN npm install -g npm \
+    && npm install --no-save
 
 # Install Bokeh with custom version of BokehJS
 WORKDIR /bokeh/bokeh-0.13.0
