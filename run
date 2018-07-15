@@ -1,0 +1,1 @@
+docker run -p 5006:5106 -v ~/DVH-Analytics/:/DVH-Analytics/ -e POSTGRES_HOST=localhost -e PYTHONUNBUFFERED=0 dvh-analytics:latest
