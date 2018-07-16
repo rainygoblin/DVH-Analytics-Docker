@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: dvh
+  web-main:
+    image: dvh-analytics:latest
+    ports:
+      - 5006:5106
+    depends_on:
+      - db
+  web-admin:
+    image: dvh-analytics-admin:latest
+    ports:
+      - 5007:5107
+    depends_on:
+      - db
+    volumes:
+      - ~/DVH-Analytics/dicom/:/dicom/

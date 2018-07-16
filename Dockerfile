@@ -3,17 +3,6 @@
 # Created on Sun Jul 15 2018
 # @author: Dan Cutright, PhD
 
-# ------------------------------------------------------------------------------
-# This block of code installs bokeh as is.  The following block of code installs
-# a modified version of bokeh removing the use of repaint() in plot_canvas.ts,
-# which significantly slows down DVH Analytics since it's a very large layout
-# ------------------------------------------------------------------------------
-# Docker file based on python image
-#FROM python:2
-#RUN pip install dvh-analytics==0.3.45
-#RUN mkdir /DVH-Analytics
-#CMD ["dvh", "run", "--allow-websocket-origin=localhost:5006", "--port=5106"]
-
 # Docker file based on ubuntu with modified Bokeh
 FROM ubuntu
 RUN apt-get update \
@@ -22,8 +11,10 @@ RUN apt-get update \
 
 # install DVH Analytics requirements sans Bokeh
 ADD ./requirements.txt /
+ADD ./import_settings.txt /
+ADD ./sql_connection.cnf /
 RUN pip install -r requirements.txt \
-    && pip install dvh-analytics==0.3.46 --no-deps
+    && pip install dvh-analytics==0.3.49 --no-deps
 
 # Install node.js, needed to install custom version of BokehJS
 RUN apt-get update -yq \

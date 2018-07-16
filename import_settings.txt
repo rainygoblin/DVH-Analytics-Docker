@@ -1,0 +1,3 @@
+inbox /dicom/inbox
+imported /dicom/imported
+review /dicom/review
