@@ -10,9 +10,11 @@ RUN apt-get update \
     && apt-get -y install git-core
 
 # install DVH Analytics requirements sans Bokeh
-ADD ./requirements.txt /
-ADD ./import_settings.txt /
-ADD ./sql_connection.cnf /
+ADD ./requirements.txt / \
+    && ./import_settings.txt / \
+    && ./sql_connection.cnf / \
+    && ./admin.sh / \
+    && ./settings.sh /
 RUN pip install -r requirements.txt \
     && pip install dvh-analytics==0.3.49 --no-deps
 

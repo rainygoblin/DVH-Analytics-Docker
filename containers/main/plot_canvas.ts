@@ -1,3 +1,6 @@
+// Edit by Dan Cutright
+// Removed repaint(), which causes significant lag for large Bokeh layouts
+
 import {Canvas, CanvasView} from "../canvas/canvas"
 import {CartesianFrame} from "../canvas/cartesian_frame"
 import {Range} from "../ranges/range"
