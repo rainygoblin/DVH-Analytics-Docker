@@ -3,7 +3,7 @@
 # Created on Sun Jul 15 2018
 # @author: Dan Cutright, PhD
 
-# Docker file based on ubuntu with modified Bokeh
+# Docker file based on ubuntu (rather than just python) to modify Bokeh
 FROM ubuntu
 RUN apt-get update \
     && apt-get -y install python-pip \
