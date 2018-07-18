@@ -12,6 +12,8 @@ services:
     restart: always
     environment:
       POSTGRES_DB: dvh
+    ports:
+      - 5432:5432
     volumes:
       - ~/DVH-Analytics/pgsql/:/var/lib/postgresql/data
 
@@ -19,28 +21,39 @@ services:
     image: dvh-analytics:latest
     ports:
       - 5006:5106
-    depends_on:
-      - db
     volumes:
       - ~/DVH-Analytics/dicom/:/dicom/
     tty: true
+    depends_on:
+      - db
 
   admin:
     image: dvh-analytics:latest
-    entrypoint: /admin.sh
+    command: dvh admin --allow-websocket-origin=localhost:5007 --port=5007 --bypass-sql-test
     ports:
-      - 5007:5107
-    depends_on:
-      - db
+      - 5007:5007
     volumes:
       - ~/DVH-Analytics/dicom/:/dicom/
     tty: true
+    depends_on:
+      - db
 
   settings:
     image: dvh-analytics:latest
-    entrypoint: /settings.sh
+    command: dvh settings --allow-websocket-origin=localhost:5008 --port=5008
     ports:
-      - 5008:5108
+      - 5008:5008
+    volumes:
+      - ~/DVH-Analytics/dicom/:/dicom/
+    tty: true
     depends_on:
       - db
-    tty: true
+#
+#  settings:
+#    image: dvh-analytics:latest
+#    entrypoint: /settings.sh
+#    ports:
+#      - 5008:5108
+#    depends_on:
+#      - db
+#    tty: true

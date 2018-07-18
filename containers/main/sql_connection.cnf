@@ -1,4 +1,4 @@
-host localhost
+host docker.for.mac.localhost
 dbname postgres
 user postgres
 port 5432

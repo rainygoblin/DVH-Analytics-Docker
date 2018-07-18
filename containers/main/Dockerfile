@@ -10,13 +10,11 @@ RUN apt-get update \
     && apt-get -y install git-core
 
 # install DVH Analytics requirements sans Bokeh
-ADD ./requirements.txt / \
-    && ./import_settings.txt / \
-    && ./sql_connection.cnf / \
-    && ./admin.sh / \
-    && ./settings.sh /
+ADD ./import_settings.txt /
+ADD ./sql_connection.cnf /
+ADD ./requirements.txt /
 RUN pip install -r requirements.txt \
-    && pip install dvh-analytics==0.3.49 --no-deps
+    && pip install dvh-analytics==0.3.53 --no-deps
 
 # Install node.js, needed to install custom version of BokehJS
 RUN apt-get update -yq \
@@ -41,4 +39,4 @@ WORKDIR /bokeh/bokeh-0.13.0
 RUN python setup.py install --build-js
 
 # Run main DVH Analytics web app accessible from user's web browser at localhost:5006
-CMD ["dvh", "run", "--allow-websocket-origin=localhost:5006", "--port=5106"]
+CMD ["dvh", "run", "--allow-websocket-origin=localhost:5006", "--port=5006", "--bypass-sql-test"]
