@@ -14,7 +14,7 @@ ADD ./import_settings.txt /
 ADD ./sql_connection.cnf /
 ADD ./requirements.txt /
 RUN pip install -r requirements.txt \
-    && pip install dvh-analytics==0.3.53 --no-deps
+    && pip install dvh-analytics==0.3.54 --no-deps
 
 # Install node.js, needed to install custom version of BokehJS
 RUN apt-get update -yq \
