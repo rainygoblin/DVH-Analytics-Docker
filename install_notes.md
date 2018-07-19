@@ -12,7 +12,7 @@ to the DVH Analytics docker image.
 * All three servers for the main, admin, and settings views are started.
 
 Some current challenges with DVH Analytics Docker:
-* Docker links to your computer's localhost differently for operating systems. We'll link to 
+* Docker links to your computer's localhost differently for different operating systems. We'll link to 
 additional information about this when we start testing outside fo Mac OS. We will either generate 
 new docker images per OS, or provide easy instructions to update the SQL login information.
 * Linking your home folder varies with operating system. This affects the volume mounts in each 
