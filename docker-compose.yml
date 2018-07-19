@@ -2,7 +2,7 @@
 # http://dvh-analytics.com
 # Created on Sun Jul 15 2018
 # @author: Dan Cutright, PhD
-# This docker-compose file runs a SQL DB, main/admin/settings web servers, and two DICOM listeners
+# This docker-compose file runs the main, admin, and settings web servers as well as a SQL DB
 
 version: '3'
 
