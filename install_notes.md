@@ -5,9 +5,9 @@ of DVH Analytics. If you haven't already, you're going to need to install
 Docker. It's free and available [here](https://www.docker.com/community-edition).
 
 Some installation challenges with DVH Analytics that are resolved with Docker:
-* Complete DVH Analytics [docker image](https://hub.docker.com/r/cutright/dvh-analytics/)
+* Complete DVH Analytics [docker image](https://hub.docker.com/r/cutright/dvh-analytics/).
 * A workaround for [this](https://github.com/bokeh/bokeh/issues/7771) Bokeh bug is applied 
-the DVH Analytics docker image.
+to the DVH Analytics docker image.
 * Postgres SQL is included (so no need for setting up user and database).
 * All three servers for the main, admin, and settings views are started.
 
