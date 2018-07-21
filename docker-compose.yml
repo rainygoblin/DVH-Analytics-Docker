@@ -16,7 +16,7 @@ services:
       - ~/DVH-Analytics/pgsql/:/var/lib/postgresql/data
 
   main:
-    image: cutright/dvh-analytics:latest
+    image: dvh-analytics:latest
     ports:
       - 5006:5006
     volumes:
@@ -26,18 +26,19 @@ services:
       - db
 
   admin:
-    image: cutright/dvh-analytics:latest
+    image: dvh-analytics:latest
     command: dvh admin --allow-websocket-origin=localhost:5007 --port=5007 --bypass-sql-test
     ports:
       - 5007:5007
     volumes:
       - ~/DVH-Analytics/dicom/:/dicom/
+      - ~/DVH-Analytics/pgsql_backups:/usr/local/lib/python2.7/dist-packages/dvh/backups
     tty: true
     depends_on:
       - db
 
   settings:
-    image: cutright/dvh-analytics:latest
+    image: dvh-analytics:latest
     command: dvh settings --allow-websocket-origin=localhost:5008 --port=5008
     ports:
       - 5008:5008
