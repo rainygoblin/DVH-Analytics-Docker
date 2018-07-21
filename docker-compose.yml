@@ -16,7 +16,7 @@ services:
       - ~/DVH-Analytics/pgsql/:/var/lib/postgresql/data
 
   main:
-    image: dvh-analytics:latest
+    image: cutright/dvh-analytics:latest
     ports:
       - 5006:5006
     volumes:
@@ -26,7 +26,7 @@ services:
       - db
 
   admin:
-    image: dvh-analytics:latest
+    image: cutright/dvh-analytics:latest
     command: dvh admin --allow-websocket-origin=localhost:5007 --port=5007 --bypass-sql-test
     ports:
       - 5007:5007
@@ -38,7 +38,7 @@ services:
       - db
 
   settings:
-    image: dvh-analytics:latest
+    image: cutright/dvh-analytics:latest
     command: dvh settings --allow-websocket-origin=localhost:5008 --port=5008
     ports:
       - 5008:5008
