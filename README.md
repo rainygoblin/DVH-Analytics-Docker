@@ -1,10 +1,4 @@
-<h3 align="center">
-  <img src="https://user-images.githubusercontent.com/4778878/30754005-b7a7e808-9f86-11e7-8b0f-79d1006babdf.jpg" alt="fastlane Logo" />
-</h3>
-
 # DVH Analytics Docker
-<img src='https://user-images.githubusercontent.com/4778878/37943568-11f856fc-3146-11e8-85ec-4c0d3cbf2492.png' align='right' width='300' alt="DVH Analytics screenshot">  
- 
 DVH Analytics Docker uses docker-compose to run three Bokeh servers (for main, admin, and settings views) and a 
 postgres SQL database. This code is currently under development, may need tweaks to work on Windows or Linux.
 

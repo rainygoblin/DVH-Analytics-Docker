@@ -21,6 +21,10 @@ services:
       - 5006:5006
     volumes:
       - ~/DVH-Analytics/dicom/:/dicom/
+      - ~/DVH-Analytics/dicom/inbox:/dicom/inbox/
+      - ~/DVH-Analytics/dicom/imported/:/dicom/imported/
+      - ~/DVH-Analytics/dicom/review/:/dicom/review/
+
     tty: true
     depends_on:
       - db
