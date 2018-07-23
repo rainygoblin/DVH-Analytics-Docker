@@ -7,14 +7,17 @@
 FROM ubuntu
 RUN apt-get update \
     && apt-get -y install python-pip \
-    && apt-get -y install git-core
+    && apt-get -y install git-core \
+    && apt-get -y install postgresql-client
+
+RUN echo '' > /this_is_running_in_docker
 
 # install DVH Analytics requirements sans Bokeh
 ADD ./import_settings.txt /
 ADD ./sql_connection.cnf /
 ADD ./requirements.txt /
 RUN pip install -r requirements.txt \
-    && pip install dvh-analytics==0.3.55 --no-deps
+    && pip install dvh-analytics==0.4.1 --no-deps
 RUN mkdir /usr/local/lib/python2.7/dist-packages/dvh/backups
 
 # Install node.js, needed to install custom version of BokehJS
