@@ -32,7 +32,8 @@ of DVH Analytics.
 file to a location of your choosing.
 3) Create a folder in your home directory 'DVH-Analytics' or replace any reference to '~/DVH-Analytics/' in 
 docker-compose.yml with any other folder you like. Be sure to keep directories to right of the colon the same.
-4) From a terminal or command prompt, navigate to the directory with your docker-compose.yml, type `docker-compose up`.
+4) From a terminal or command prompt, navigate to the directory with your docker-compose.yml, type  
+`docker-compose up`.
 
 5) From here, there are three views: 
     * Main: http://localhost:5006
