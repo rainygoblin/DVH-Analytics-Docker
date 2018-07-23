@@ -64,6 +64,10 @@ docker-compose.yml with any other folder you like. Be sure to keep directories t
 3) Enjoy:
     * Navigate to localhost:5006
     * Design your query and explore.
+
+4) Shutdown:
+    * When you'd like to shut off DVH Analytics, simply activate the terminal running docker-compose 
+and press CTRL+c.
  
 ### General Notes
 
