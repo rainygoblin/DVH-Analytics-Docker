@@ -72,6 +72,10 @@ and press CTRL+c.
  
 ### General Notes
 
+The preferred web browser for DVH Analytics is Chrome, Firefox should work as well. **Internet Explorer is not supported.**
+
+If the web interface of DVH Analytics appears to be unresponsive, try clearing your browser history. 
+
 Some installation challenges with DVH Analytics that are resolved with Docker:
 * Complete DVH Analytics [docker image](https://hub.docker.com/r/cutright/dvh-analytics/) is used.
 * A workaround for [this](https://github.com/bokeh/bokeh/issues/7771) Bokeh bug is applied.
@@ -88,6 +92,7 @@ on lines relating to volume in each service
 * If you're already running services on ports 5432, 5006, 5007, or 5008, you'll need to modify lines 14, 21, 32, and 43 of 
 docker-compose.yml. The port to the left of the colon is local, keep the port to the right the same. If 5432 (for postgres) is altered 
 you'll need to update the port listed when launching the settings view normally on port 5008.
+* You may need to increase the amount of memory Docker is allowed to use, found in settings -> advanced
 
 To ensure continuity of data, the postgres SQL database is mapped to a local directory 
 (by default ~/DVH-Analytics/pgsql).  
