@@ -24,6 +24,7 @@ services:
       - ~/DVH-Analytics/dicom/inbox:/dicom/inbox
       - ~/DVH-Analytics/dicom/imported:/dicom/imported
       - ~/DVH-Analytics/dicom/review:/dicom/review
+      - ~/DVH-Analytics/import_and_connection:/import_and_connection
     tty: true
     depends_on:
       - db
@@ -37,6 +38,7 @@ services:
       - ~/DVH-Analytics/dicom:/dicom
       - ~/DVH-Analytics/pgsql_backups:/usr/local/lib/python2.7/dist-packages/dvh/backups
       - ~/DVH-Analytics/preferences:/usr/local/lib/python2.7/dist-packages/dvh/preferences
+      - ~/DVH-Analytics/import_and_connection:/import_and_connection
     tty: true
     depends_on:
       - db
@@ -48,6 +50,8 @@ services:
       - 5008:5008
     volumes:
       - ~/DVH-Analytics/dicom:/dicom
+      - ~/DVH-Analytics/preferences:/usr/local/lib/python2.7/dist-packages/dvh/preferences
+      - ~/DVH-Analytics/import_and_connection:/import_and_connection./
     tty: true
     depends_on:
       - db
