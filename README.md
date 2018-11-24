@@ -4,10 +4,17 @@
 
 # DVH Analytics Docker
 DVH Analytics Docker uses docker-compose to run three Bokeh servers (for main, admin, and settings views) and a 
-postgres SQL database. This code is currently under development, may need tweaks to work on Windows or Linux.
+postgres SQL database. This code is currently under development.  
 
-DVH Analytics is a software application to help radiation oncology departments build an in-house database of treatment planning data 
-for the purpose of historical comparisons and statistical analysis. This code is still in development.  Please contact the developer if  you are interested in testing or collaborating.
+DVH Analytics Docker was designed for Mac OS. Technically speaking, the docker image should work on Windows and Linux, 
+however the docker-compose.yml file will need significant changes and docker settings will need to be changed to ensure 
+directory and port mappings. If you're not very familiar with Docker on Windows or Linux, we don't recommend DVH 
+Analytics Docker; you'll probably have better luck installing DVH Analytics [source code](https://github.com/cutright/DVH-Analytics) 
+and a separate SQL Database.
+
+DVH Analytics is a software application to help radiation oncology departments build an in-house database of treatment 
+planning data for the purpose of historical comparisons and statistical analysis. This code is still in development. 
+Please contact the developer if you are interested in testing or collaborating.
 
 The application builds a SQL database of DVHs and various planning parameters from DICOM files 
 (i.e., Plan, Structure, Dose). Since the data is extracted directly from DICOM files, we intend
