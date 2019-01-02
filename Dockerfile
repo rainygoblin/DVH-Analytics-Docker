@@ -8,7 +8,7 @@ FROM cutright/bokeh
 
 # install DVH Analytics requirements sans Bokeh
 RUN mkdir /import_and_connection
-RUN pip install dvh-analytics=='0.4.7' --no-deps
+RUN pip install dvh-analytics=='0.4.10' --no-deps
 RUN mkdir /usr/local/lib/python2.7/dist-packages/dvh/backups
 
 # Run main DVH Analytics web app accessible from user's web browser at localhost:5006
